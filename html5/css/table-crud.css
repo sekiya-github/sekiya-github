@@ -1,0 +1,130 @@
+/* table */
+.table-crud {
+	width: 100%;
+	max-width: 1000px;
+	height: auto;
+	display: table;
+/*
+	margin-left: auto;
+	margin-right: auto;
+*/
+	border-bottom: 1px solid #ccc;
+}
+
+
+
+
+/* cell */
+.table-crud .cell {
+	display: table-cell;
+	width: auto;
+	vertical-align: top;
+	margin: 0;
+	padding: 25px;/*	border: 1px dashed #ccc;*/
+}
+.table-crud .cell.cell-img {
+	width: 220px;
+}
+
+.table-crud .cell.cell-edit {
+	width: 160px;
+	padding: 0;
+	vertical-align: middle;
+	text-align: center;
+}
+
+
+
+
+/* cell contents */
+.table-crud .cell img {
+	max-width: 100%;
+}
+
+
+.table-crud .cell .title {
+	font-size: 25px;
+	margin-bottom: 20px;
+	text-decoration: underline;
+}
+.table-crud .cell .category {
+	display: inline-block;
+	border: 1px solid #000;
+	margin-bottom: 20px;
+	padding: 4px 10px;
+	font-size: 14px;
+}
+.table-crud .cell .info {
+	font-size: 14px;
+	color: #929292;
+}
+
+
+.table-crud .cell .info dt {
+	display: inline;
+	padding-right: 5px;
+}
+.table-crud .cell .info dd {
+	display: inline;
+	padding-right: 1em;
+}
+.table-crud .cell .icon {
+	height: 1em;
+	width: 1em;
+	vertical-align: bottom;
+}
+.table-crud .cell .edit-icon {
+	width: 1.6em;
+	margin-right: 1.6em;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+
+	mible
+
+----------------------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+	
+	/* table */
+	.table-crud {
+		display: block;
+		padding: 20px 0;
+	}
+	.table-crud .cell.cell-img img {
+		max-width: 60%;
+	}
+	
+	
+	/* cell */
+	.table-crud .cell {
+		display: block;
+		width: 100%;
+		vertical-align: top;
+		margin: 0;
+		padding: 10px 0;
+	}
+	.table-crud .cell.cell-img {
+		width: 100%;
+	}
+	.table-crud .cell.cell-edit {
+		display: none;
+	}
+	
+	
+	
+	
+	/* cell contents */
+	.table-crud .cell .title {
+		font-size: 17px;
+		margin-bottom: 1em;
+	}
+	.table-crud .cell .category {
+		font-size: 14px;
+		margin-bottom: 1em;
+	}
+	.table-crud .cell .info {
+		font-size: 14px;
+	}
+}

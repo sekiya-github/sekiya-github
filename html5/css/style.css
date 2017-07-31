@@ -1,0 +1,3903 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------------------------------------
+
+	reset
+
+----------------------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	box-sizing: border-box;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+input, select, button {
+	font: inherit;
+}
+img {
+	vertical-align: bottom;
+	max-width: 100%;
+}
+label {
+	cursor: pointer;
+}
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	padding: 0;
+	background: transparent;
+	cursor: pointer;
+	line-height: 1;
+	outline: none;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+textarea,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	line-height: 1;
+	box-sizing: border-box;
+	outline: none;
+	border-radius: 0;
+	border: none;
+	background: inherit;
+}
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border-radius: 0;
+	line-height: 1;
+}
+textarea {
+	resize: none;
+	width: 100%;
+	line-height: 1.5;
+}
+input[type="button"],
+input[type="submit"] {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	border: none;
+	line-height: 1;
+	cursor: pointer;
+}
+::-webkit-input-placeholder {
+	color: #a9aaac;
+}
+:-moz-placeholder {
+	color: #a9aaac;
+	opacity: 1;
+}
+::-moz-placeholder {
+	color: #a9aaac;
+	opacity: 1;
+}
+:-ms-input-placeholder {
+	color: #a9aaac;
+}
+.clr:after {
+	content : '';
+	display : block;
+	clear : both;
+	height:0;
+}
+
+
+/* -----------------------------------------------------------------------------
+
+	base
+
+----------------------------------------------------------------------------- */
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-print-color-adjust: exact;
+	font-family: YuGothic, 'Yu Gothic', 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'MS Sans Serif', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	-webkit-text-size-adjust: 100%;
+	color: #000;
+	min-width: 1000px;
+}
+body.fixed {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+}
+.sp {
+	display: none;
+}
+.inner {
+	max-width: 1240px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+#content {
+	background: #f2f2f2;
+	line-height: 1.5;
+	font-size: 15px;
+	word-break: break-all;
+	padding-top: 140px;
+	overflow: hidden;
+}
+
+/* #header
+---------------------------------------------*/
+#header {
+	position: fixed;
+	z-index: 999;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #fff;
+	border-bottom: 1px solid #f2f2f2;
+	min-width: 1000px;
+}
+
+/* #headerTop */
+#headerTop {
+	padding: 20px 20px 0;
+	height: 75px;
+	position: relative;
+	z-index: 2;
+	background: #fff;
+}
+#headerTop .logo {
+	float: left;
+}
+#headerTop .logo img {
+	width: auto;
+	height: 35px;
+}
+#headerTop .btnMenu {
+	display: none;
+}
+
+/* #gnav */
+#gnav {
+	border-top: 1px solid #ccc;
+}
+#gnav .inner {
+	padding: 0;
+}
+#gnav .searchForm {
+	font-size: 0;
+	position: absolute;
+	top: 17px;
+	right: 20px;
+	z-index: 2;
+}
+#gnav .searchForm dt {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	padding-right: 20px;
+}
+#gnav .searchForm dd {
+	display: inline-block;
+	font-size: 14px;
+	position: relative;
+}
+#gnav .searchForm dd .inputText {
+	width: 380px;
+	height: 40px;
+	padding: 0 40px 0 13px;
+	background: #ddd;
+	border: 1px solid #ccc;
+}
+@media all and (-ms-high-contrast:none){
+#gnav .searchForm dd .inputText {
+	padding: 6px 40px 0 13px;
+}
+}
+#gnav .searchForm dd .inputText:focus {
+	border: 1px solid #ff4b46;
+}
+#gnav .searchForm dd .inputText::-webkit-input-placeholder {
+	line-height: 1.5;
+}
+#gnav .searchForm dd .search {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: url(/common/img/icon_search.png) no-repeat center center;
+	background-size: 15px;
+}
+#gnav ul {
+	font-size: 0;
+	text-align: center;
+}
+#gnav ul li {
+	display: inline-block;
+	vertical-align: middle;
+}
+#gnav ul li a {
+	padding: 0 30px;
+	display: block;
+}
+#gnav ul li a span {
+	height: 64px;
+	line-height: 64px;
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+	border-top: 2px solid #fff;
+	border-bottom: 2px solid #fff;
+}
+#gnav ul li.facebook {
+	vertical-align: middle;
+	margin: 0 30px;
+}
+#gnav ul li.facebook a {
+	width: 30px;
+	height: 30px;
+	background: url(/common/img/btn_facebook_on.png) no-repeat;
+	background-size: 100%;
+	border: none;
+	padding: 0;
+}
+#gnav ul li a img {
+	vertical-align: top;
+	width: 100%;
+}
+
+/* #footer
+---------------------------------------------*/
+#footer {
+	clear: both;
+	position: relative;
+}
+
+/* #pagetop */
+#pagetop {
+	width: 50px;
+	height: 50px;
+	background: #777;
+	position: absolute;
+	right: 0;
+	margin-right: 25px;
+	z-index: 100;
+}
+#pagetop:hover {
+	cursor: pointer;
+}
+
+/* #footerTop */
+#footerTop {
+	background: #222;
+	color: #fff;
+	padding: 50px 0;
+}
+#footerTop #footerSitemap {
+	float: left;
+}
+#footerTop #footerSitemap ul {
+	float: left;
+	margin-right: 100px;
+	font-size: 16px;
+	font-weight: bold;
+}
+#footerTop #footerSitemap ul li + li {
+	margin-top: 20px;
+}
+#footerTop #footerSitemap ul li a span {
+	padding-right: 20px;
+	position: relative;
+}
+#footerTop #footerSitemap ul li a span:before {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -6px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+#footerTop #footerLink {
+	float: left;
+	font-size: 13px;
+	font-weight: bold;
+}
+#footerTop #footerLink ul + ul {
+	margin-top: 15px;
+}
+#footerTop #footerLink ul li + li {
+	margin-top: 15px;
+}
+#footerTop #facebookWidget {
+	float: right;
+	width: 290px;
+}
+
+
+/* #footerBottom */
+#footerBottom {
+	background: #fff;
+	color: #777;
+	font-size: 12px;
+	padding: 26px 0;
+	line-height: 1.5;
+}
+#footerBottom .pmark {
+	float: left;
+}
+#footerBottom .pmark img {
+	float: left;
+	width: 70px;
+	margin: -15px 30px -15px 0;
+}
+#footerBottom .copyright {
+	float: right;
+	text-align: right;
+}
+#footerBottom .copyright small {
+	display: block;
+}
+
+
+/* -----------------------------------------------------------------------------
+
+	plugin
+
+----------------------------------------------------------------------------- */
+/* slick
+---------------------------------------------*/
+.slick-list {
+	margin-left: -2%;
+}
+.slick-slider .slick-track,
+.slick-slider .slick-list {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.slick-list:focus {
+	outline: none;
+}
+.slick-list.dragging {
+	cursor: pointer;
+	cursor: hand;
+}
+.slick-slider .slick-track, .slick-slider .slick-list {
+	-webkit-transform: translate3d(0, 0, 0);
+	-moz-transform: translate3d(0, 0, 0);
+	-ms-transform: translate3d(0, 0, 0);
+	-o-transform: translate3d(0, 0, 0);
+	transform: translate3d(0, 0, 0);
+}
+.slick-track {
+	position: relative;
+	top: 0;
+	left: 0;
+	display: block;
+}
+.slick-track:before,
+.slick-track:after {
+	display: table;
+	content: '';
+}
+.slick-track:after {
+	clear: both;
+}
+.slick-loading .slick-track {
+	visibility: hidden;
+}
+.slick-slide {
+	display: none;
+	float: left;
+	height: 100%;
+	min-height: 1px;
+}
+[dir='rtl'] .slick-slide {
+	float: right;
+}
+.slick-slide img {
+	display: block;
+}
+.slick-slide.slick-loading img {
+	display: none;
+}
+.slick-initialized .slick-slide {
+	display: block;
+}
+.slick-loading .slick-slide {
+	visibility: hidden;
+}
+.slick-vertical .slick-slide {
+	display: block;
+	height: auto;
+	border: 1px solid transparent;
+}
+.slick-arrow.slick-hidden {
+	display: none;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+
+	module
+
+----------------------------------------------------------------------------- */
+.wrap {
+	padding: 90px 0 110px;
+}
+.wrap.lowwrap {
+	padding: 50px 0 80px;
+}
+.wrap.lowwrap02 {
+	padding: 40px 0 100px;
+}
+.wrap:first-child {
+	padding-top: 50px;
+}
+.wrap.lowwrap:first-child {
+	padding: 40px 0 40px;
+}
+.wrapGray {
+	background: #f2f2f2;
+}
+.wrapWhite {
+	background: #fff;
+}
+section {
+	position: relative;
+	clear: both;
+}
+section + section {
+	margin-top: 90px;
+}
+.underline {
+	text-decoration: underline;
+}
+
+/* title
+---------------------------------------------*/
+.ttl01 {
+	font-weight: bold;
+	color: #999;
+	font-size: 14px;
+	line-height: 1.3;
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+.ttl01 b {
+	display: inline-block;
+	color: #000;
+	font-size: 30px;
+	margin-right: 20px;
+	position: relative;
+}
+.ttl01 b:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #ff4b46;
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+}
+.ttl02 {
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 1.3;
+	margin-bottom: 40px;
+	text-align: center;
+}
+.ttl02 b {
+	display: inline-block;
+	padding-bottom: 15px;
+	border-bottom: 2px solid #ff4b46;
+}
+.ttl03 {
+	font-weight: bold;
+	font-size: 30px;
+	line-height: 1.3;
+}
+.ttl04 {
+	font-weight: bold;
+	color: #999;
+	font-size: 14px;
+	line-height: 1.3;
+	margin-bottom: 30px;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #ccc;
+}
+.ttl04 b {
+	display: inline-block;
+	color: #000;
+	font-size: 26px;
+	margin-right: 20px;
+	position: relative;
+}
+.ttl04 b:before {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #ff4b46;
+	position: absolute;
+	bottom: -16px;
+	left: 0;
+}
+/* button
+---------------------------------------------*/
+.btn {
+	margin-left: auto;
+	margin-right: auto;
+}
+.btn a {
+	display: block;
+	line-height: 1.3;
+	font-weight: bold;
+}
+.btn a span {
+	position: relative;
+	padding: 10px 23px 10px 0;
+	margin: 0 20px;
+	display: block;
+}
+@media all and (-ms-high-contrast:none){
+.btn a span {
+	padding: 12px 23px 8px 0;
+}
+}
+.btn a span:before {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	right: 0;
+	top: 50%;
+	margin-top: -6px;
+	border-top: 2px solid #000;
+	border-right: 2px solid #000;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.btn01 a {
+	border: 2px solid #000;
+	background: #fff;
+	font-size: 15px;
+	text-align: left;
+}
+.btn01 a span {
+	display: block;
+}
+.btn01 a span:before {
+	display: block;
+}
+.btn02 a {
+	background: #d6d6d6;
+	font-size: 14px;
+	text-align: center;
+}
+.btn02 a span {
+	display: inline-block;
+}
+.btnHead {
+	position: absolute;
+	top: -5px;
+	right: 0;
+}
+.more {
+	width: 200px;
+	text-align: center;
+	margin: auto;
+	background-color: #d6d6d6;
+	display: block;
+	font-weight: bold;
+	font-size: 15px;
+	padding: 15px 0px;
+	position: relative;
+	margin-top: 20px;
+	transition: 0.2s ease-out;
+}
+.more:before {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	right: 23px;
+	top: 50%;
+	margin-top: -6px;
+	border-top: 2px solid #000;
+	border-right: 2px solid #000;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+	transition: 0.2s ease-out;
+}
+.more02 {
+	width: 196px;
+	font-size: 15px;
+	padding: 13px 0px;
+	margin: 70px auto 0px auto;
+	border: 2px solid #000;
+	text-align: center;
+	display: block;
+	position: relative;
+	font-weight: bold;
+	transition: 0.2s ease-out;
+}
+.more02:before {
+	content: "";
+	display: block;
+	width: 8px;
+	height: 8px;
+	position: absolute;
+	right: 24px;
+	top: 50%;
+	margin-top: -7px;
+	border-top: 2px solid #000;
+	border-right: 2px solid #000;
+	-webkit-transform: rotate(135deg);
+	transform: rotate(135deg);
+	transition: 0.2s ease-out;
+}
+@media all and (-ms-high-contrast:none){
+.more,
+.more02 {
+	padding: 18px 0px 12px;
+}
+}
+
+/* #overlay
+---------------------------------------------*/
+#overlay {
+	width: 100%;
+	position: fixed;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	z-index: 999;
+	display: none;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+/* .latestBox
+---------------------------------------------*/
+.latestBox {
+	background: #fff;
+	padding: 40px;
+}
+.latestBox figure {
+	background: #dedede;
+	width: 30.4%;
+	height: 330px;
+	text-align: center;
+	float: left;
+	position: relative;
+}
+.latestBox figure img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 180px;
+	box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+}
+.latestBox .information {
+	margin-left: 34%;
+	position: relative;
+}
+.latestBox .information .bookTtl {
+	font-weight: bold;
+	font-size: 24px;
+	padding-top: 10px;
+	margin-bottom: 35px;
+}
+.latestBox .information .publisher {
+	float: left;
+	width: 36%;
+	font-size: 13px;
+	font-weight: bold;
+	margin-bottom: 90px;
+}
+.latestBox .information .publisher p + p {
+	margin-top: 5px;
+}
+.latestBox .information .txt {
+	width: 62%;
+	float: right;
+	line-height: 1.8;
+	margin-bottom: 40px;
+}
+.latestBox .information .label {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 13px;
+	font-weight: bold;
+	line-height: 1;
+}
+.latestBox .information .label p {
+	float: left;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-right: 1px solid #aaa;
+}
+.latestBox .information .label p + p {
+	padding-right: 0;
+	margin-right: 0;
+	border-right: none;
+}
+.latestBox .information .btn {
+	position: absolute;
+	bottom: 20px;
+	left: 0;
+	width: 200px;
+}
+
+/* .rankList
+---------------------------------------------*/
+.rankList {
+	position: relative;
+}
+.rankList .slick-arrow {
+	position: absolute;
+	bottom: 0;
+	width: 11px;
+	height: 18px;
+	border: none;
+	outline: none;
+	text-indent: -9999px;
+	z-index: 2;
+	background: #000;
+}
+.rankList .slick-arrow:hover {
+	cursor: pointer;
+}
+.rankList .slick-prev {
+	left: 0;
+	background: url(/common/img/icon_slider_prev.png) no-repeat;
+	background-size: 11px 18px;
+}
+.rankList .slick-next {
+	right: 0;
+	background: url(/common/img/icon_slider_next.png) no-repeat;
+	background-size: 11px 18px;
+}
+.rankList .slick-disabled {
+	opacity: 0;
+}
+.rankList ul.slick-dots {
+	text-align: center;
+	padding: 30px 0 5px;
+	font-size: 0;
+	clear: both;
+}
+.rankList ul.slick-dots li {
+	display: inline-block;
+	margin: 0 7px;
+}
+.rankList ul.slick-dots li button {
+	background: #e3e3e3;
+	text-indent: -9999px;
+	display: block;
+	width: 8px;
+	height: 8px;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+}
+.rankList ul.slick-dots li.slick-active button {
+	background: #c8c8c8;
+}
+.rankList ul.slick-dots li button:hover {
+	cursor: pointer;
+}
+.rankList figure {
+	float: left;
+	width: 18.4%;
+	margin-left: 2%;
+}
+.rankList figure a {
+	display: block;
+	position: relative;
+	outline: none;
+}
+.rankList figure a:before {
+	content: "0";
+	display: block;
+	width: 32px;
+	height: 32px;
+	line-height: 32px;
+	text-align: center;
+	color: #fff;
+	font-weight: bold;
+	font-size: 16px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 2;
+	background: #000;
+}
+.rankList figure.rank01 a:before {
+	content: "1";
+	background: #ff4b46;
+}
+.rankList figure.rank02 a:before {
+	content: "2";
+	background: #ff4b46;
+}
+.rankList figure.rank03 a:before {
+	content: "3";
+	background: #ff4b46;
+}
+.rankList figure.rank04 a:before {
+	content: "4";
+}
+.rankList figure.rank05 a:before {
+	content: "5";
+}
+.rankList figure span {
+	background: #dedede;
+	display: block;
+	height: 196px;
+	text-align: center;
+	position: relative;
+}
+.rankList figure span img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 110px;
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.rankList figure b {
+	display: block;
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 16px;
+}
+/* .bookList
+---------------------------------------------*/
+.bookList {
+	margin: -70px 0 0 -4.75%;
+}
+.bookList li {
+	float: left;
+	width: 28.58%;
+	margin: 70px 0 0 4.75%;
+}
+.bookList li a {
+	display: block;
+}
+.bookList li figure {
+	display: block;
+	text-align: center;
+	position: relative;
+	overflow: hidden;
+}
+.bookList li.catRecommended figure {
+	background: #dedede;
+}
+.bookList li.catRecommended figure img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	width: 32%;
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.bookList li .label {
+	overflow: hidden;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 1;
+	padding-top: 15px;
+}
+.bookList li .label p {
+	float: left;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-right: 1px solid #aaa;
+}
+.bookList li .label p:last-child {
+	padding-right: 0;
+	margin-right: 0;
+	border-right: none;
+}
+.bookList li .bookTtl {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 15px;
+}
+.bookList li.first .bookTtl {
+	font-size:22px;
+}
+.bookList li .txt {
+	margin-top: 15px;
+}
+/* .anotherLink
+---------------------------------------------*/
+.anotherLink {
+	margin: 110px -2.4% 0;
+	clear: both;
+	text-align: center;
+	font-size: 0;
+}
+.anotherLink li {
+	width: 45.2%;
+	margin: 0 2.4%;
+	display: inline-block;
+	position: relative;
+}
+.anotherLink li a {
+	display: block;
+}
+.anotherLink li a:before {
+	content: "";
+	display: block;
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	right: 20px;
+	top: 50%;
+	margin-top: -5px;
+	border-top: 3px solid #fff;
+	border-right: 3px solid #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+	z-index: 2;
+}
+.anotherLink li a:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.6);
+}
+.anotherLink li span {
+	display: block;
+	width: 100%;
+	font-size: 24px;
+	color: #fff;
+	font-weight: bold;
+	position: absolute;
+	top: 50%;
+	margin-top: -0.5em;
+	line-height: 1;
+	z-index: 2;
+}
+/* .recommendBox
+---------------------------------------------*/
+.recommendBox {
+	background: #fff;
+	padding: 60px 30px 70px;
+	text-align: center;
+}
+.recommendBox .ttl {
+	text-align: center;
+	font-size: 30px;
+	font-weight: bold;
+	margin-bottom: 40px;
+}
+.recommendBox .lead {
+	text-align: center;
+	font-size: 32px;
+	font-weight: bold;
+	margin-top: 50px;
+}
+.recommendBox dl {
+	margin-top: 30px;
+	text-align: center;
+}
+.recommendBox dl dt {
+	font-weight: bold;
+	font-size: 22px;
+	line-height: 1.7;
+}
+.recommendBox dl dd {
+	margin-top: 20px;
+	font-size: 16px;
+	line-height: 2;
+}
+.recommendBox dl dd p + p {
+	margin-top: 20px;
+}
+.recommendBox dl dd strong {
+	font-weight: bold;
+}
+.recommendBox .btn {
+	margin: 30px auto 0;
+	width: 200px;
+}
+.recommendBox .btn a {
+	text-align: center;
+	padding: 5px 0;
+}
+.recommendBox .btn a span {
+	display: inline-block;
+	margin: 0;
+}
+/* .newsList
+---------------------------------------------*/
+.newsList {
+	background: url(/common/img/line_dotted01.png) repeat-x left top;
+}
+.newsList li {
+	background: url(/common/img/line_dotted01.png) repeat-x left bottom;
+	padding: 20px;
+}
+.newsList li span {
+	display: block;
+}
+.newsList li .time {
+	float: left;
+	font-weight: bold;
+}
+.newsList li .txt {
+	margin-left: 105px;
+}
+.newsList li a {
+	text-decoration: underline;
+}
+
+/* .tag
+---------------------------------------------*/
+.tag {
+	background-color:#fff;
+}
+.tag .tagList {
+    position: relative;
+	height:43px;
+    overflow: hidden;
+}
+.tag ul {
+	overflow: hidden;
+	margin-right:35px;
+}
+.tag ul li {
+    float: left;
+    margin-right: 12px;
+    margin-bottom: 16px;
+}
+.tag a {
+    font-size: 14px;
+    padding: 2px 5px;
+    text-decoration: none;
+    border: 1px solid #000;
+    display: block;
+}
+@media all and (-ms-high-contrast:none){
+.tag a {
+	padding: 4px 5px 0;
+}
+}
+.tag a.checked {
+	background-color:#000;
+	color:#fff;
+}
+
+/* .TagListAdd
+---------------------------------------------*/
+.TagListAdd {
+    display: block;
+    background-color: #d6d6d6;
+    color: #000;
+    text-indent: -9999px;
+    overflow: hidden;
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.TagListAdd:before, .TagListAdd:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #000;
+}
+.TagListAdd:after {
+    width: 1px;
+    height: 15px;
+    top: 5px;
+    left: 12px;
+}
+.TagListAdd:before {
+  width: 15px;
+  height: 1px;
+  top: 12px;
+  left: 5px;
+}
+.TagListAdd.active:after {
+  opacity: 0;
+}
+
+/* .bookTagListBox
+---------------------------------------------*/
+.bookTagListBox {
+    padding: 25px 40px;
+    margin: 40px 0px 10px;
+}
+.bookTagttl {
+    font-size: 16px;
+    font-weight: bold;
+    float: left;
+	width:100px;
+}
+
+.bookTagList {
+    background: url(/common/img/line_dotted01.png) repeat-x left bottom;
+    margin: 15px 0px;
+}
+.bookTagListBox .bookTagList.last{
+    background-image: none;
+    margin-bottom: 0px;
+}
+
+/* .bookListBestSeller
+---------------------------------------------*/
+.bookListBestSeller {
+	margin-bottom:100px;
+}
+
+/* .bookResultList
+---------------------------------------------*/
+
+.bookResultList ul {
+	overflow:hidden;
+}
+.bookResultList li {
+    float: left;
+    width: 22%;
+    margin: 0 4% 54px 0;
+}
+.bookResultList li.hide {
+	display:none;
+}
+.bookResultList li:nth-child(4n) {
+	margin-right:0;
+}
+.bookResultList li figure {
+    display: block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #dedede;
+    height: 250px;
+	margin-bottom:15px;
+}
+.bookResultList ul li figure img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 42%;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.bookResultList ul li h3.ttl {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+}
+.bookResultList ul li span.Tag {
+	font-size:11px;
+	font-weight:bold;
+	padding:2px 4px;
+	border:1px solid #000;
+	margin-bottom:12px;
+}
+@media all and (-ms-high-contrast:none){
+.bookResultList ul li span.Tag {
+	padding:3px 4px 0;
+}
+}
+.bookResultList ul li .author{
+    font-size: 11px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+/* .popupWarranty
+---------------------------------------------*/
+.popupWarranty {
+    width: 82%;
+    max-width: 980px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    z-index: 999;
+    margin: auto;
+    padding: 48px 50px;
+	display:none;
+}
+.popupWarranty h3 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 34px;
+    margin-bottom: 22px;
+}
+.popupWarranty .sub {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 28px;
+}
+.popupWarranty .txt p {
+	margin-bottom:20px;
+}
+.popupWarranty .adress {
+    font-weight: bold;
+    font-size: 14px;
+    border-top: 1px solid #ccc;
+    padding-top: 28px;
+    margin-top: 18px;
+}
+.popupWarranty .adress a {
+	text-decoration:underline;
+}
+.popupWarranty .close {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background: url(/common/img/icon_closepopup.jpg) no-repeat;
+    width: 65px;
+    background-size: 65px 65px;
+    height: 65px;
+    text-indent: -9999px;
+}
+/* .nodata
+---------------------------------------------*/
+.nodata {
+	text-align: center;
+	font-size: 18px;
+	padding: 100px 0;
+}
+/* .pankuzu
+---------------------------------------------*/
+.pankuzu {
+	margin:20px auto 28px;
+}
+.pankuzu ul{
+	overflow:hidden;
+}
+.pankuzu li {
+	float: left;
+	font-size: 13px;
+	padding-left: 7px;
+}
+.pankuzu span {
+	float: left;
+	width: 4px;
+	height: 7px;
+	background: url(/common/img/icon_pankuzu.png) no-repeat;
+	display: block;
+	margin: 6px 0px 0px 7px;
+}
+.pankuzu li a {
+	text-decoration:underline;
+}
+/* .detailcontent
+---------------------------------------------*/
+.detailcontent {
+	max-width: 1200px;
+	margin: auto;
+	position: relative;
+	margin-bottom: 60px;
+}
+.detailcontent .detail{
+	max-width:895px;
+	background-color:#fff;
+	padding:40px 40px;
+}
+.detailcontent .detailData {
+	overflow:hidden;
+	margin-bottom:50px;
+}
+.detailcontent .detailData figure {
+    display: block;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: #dedede;
+    height: 330px;
+    margin-bottom: 15px;
+    width: 42%;
+    max-width: 340px;
+    float: left;
+    margin-right: 5%;
+}
+.detailcontent .detailData figure img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 50%;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.detailcontent .detailData p {
+	font-weight:bold;
+}
+.detailcontent .detailData p.ttl{
+    font-size: 30px;
+    margin-bottom: 22px;
+}
+.detailcontent .detailData .publisher {
+	font-size:13px;
+}
+.detailcontent .detailData .author {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+.detailcontent .detailData .price {
+    font-size: 13px;
+    margin-bottom: 2px;
+}
+.detailcontent .detailData .price strong {
+	color:#ff4b46;
+	font-size:28px;
+}
+.detailcontent .detailData .price strong span {
+	color:#ff4b46;
+	font-size:16px;
+}
+.detailcontent .detailData .freeDelivery {
+    font-size: 14px;
+    color: #ff4b46;
+    border: 1px solid #ff4b46;
+    float: left;
+    padding: 4px 10px;
+}
+
+.detailcontent .detailBox {
+	margin-bottom:50px;
+}
+.detailcontent .explanation .txt {
+    overflow: hidden;
+    height: 400px;
+}
+.detailcontent .explanation h5 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+.detailcontent .explanation p {
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.detailcontent .explanation p b {
+	font-weight:bold;
+}
+.detailcontent .explanation .more {
+	width:300px;
+}
+.detailcontent .index ul {
+	border:1px solid #ccc;
+}
+.detailcontent .index ul li {
+	border-bottom:1px solid #ccc;
+	position:relative;
+}
+.detailcontent .index ul li:last-child {
+	border-bottom:none;
+}
+.detailcontent .index ul li .ttl {
+    background-color: #f3f3f3;
+    box-shadow: 0px 1px 0px 0px #ccc;
+    -moz-box-shadow: 0px 1px 0px 0px #ccc;
+    -webkit-box-shadow: 0px 1px 0px 0px #ccc;
+    cursor: pointer;
+    transition: .2s ease-out;
+}
+.detailcontent .index ul li:first-child .ttl {
+	cursor:auto;
+}
+.detailcontent .index ul li .ttl p {
+	font-size:15px;
+	padding: 15px 48px 16px 30px;
+	position: relative;
+}
+.detailcontent .index ul li .txt { 
+    display: none;
+}
+.detailcontent .index ul li .txt div{
+	padding: 15px 30px 15px 50px;
+}
+.detailcontent .index ul li .txt p {
+	font-size: 14px;
+	margin: 8px 0;
+}
+.detailcontent .index ul li .ttl p:before,
+.detailcontent .index ul li .ttl p:after {
+  content: "";
+  display: block;
+  position: absolute;
+  background-color: #000;
+}
+.detailcontent .index ul li:first-child .ttl p:before,
+.detailcontent .index ul li:first-child .ttl p:after {
+	display:none;
+}
+.detailcontent .index ul li .ttl p:after {
+	width: 1px;
+	height: 17px;
+	top: 50%;
+	right: 29px;
+	margin-top: -8.5px;
+}
+.detailcontent .index ul li .ttl p:before {
+	width: 17px;
+	height: 1px;
+	top: 50%;
+	right: 21px;
+	margin-top: -0.5px;
+}
+.detailcontent .index ul li .active p:after {
+  opacity: 0;
+}
+.authorPhoto{
+	float:left;
+	margin:auto 25px 25px auto;
+}
+.detailcontent .author p {
+	margin-left:158px;
+}
+.detailcontent .author p.name {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+/* .sidedetail
+---------------------------------------------*/
+.sidedetail {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 269px;
+    transition: .5s ease-out;
+}
+.buy {
+    border: 4px solid #d6d6d6;
+    width: 267px;
+    background-color: #fff;
+    padding: 20px 26px;
+    margin-bottom: 20px;
+}
+.buy p {
+	font-weight:bold;
+}
+.buy .ttl {
+	font-size:15px;
+}
+.buy .price {
+    font-size: 13px;
+    letter-spacing: -0.5px;
+}
+.buy .price strong {
+	color:#ff4b46;
+	font-size:30px;
+}
+.buy .price strong span {
+	font-size:16px;
+}
+.buy .freeDelivery {
+    font-size: 14px;
+    color: #ff4b46;
+    border: 1px solid #ff4b46;
+    float: left;
+    padding: 2px 10px;
+    margin-bottom: 15px;
+}
+.buy .btnBox {
+	border-top:1px solid #ccc;
+	padding-top:20px;
+	margin-top:15px;
+}
+.buy .btnBox li {
+	margin-bottom:10px;
+}
+.buy .btnBox li a {
+    display: block;
+    border: 2px solid #000;
+    text-align: center;
+    width: 211px;
+    font-weight: bold;
+    min-height: 55px;
+    line-height: 1.2;
+    padding-top: 16px;
+	font-size:16px;
+}
+.buy .btnBox li:last-child a {
+	padding-top:7px;
+	font-size:15px;
+	background-color:#000;
+	color:#fff;
+}
+.warranty {
+    font-weight: bold;
+    background-color: #fff;
+    padding: 28px 34px;
+    overflow: hidden;
+}
+.warranty .ttl {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+.warranty .txt {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.warranty .poplink {
+    text-align: right;
+    padding-right: 16px;
+    float: right;
+    position: relative;
+	transition: 0.2s ease-out;
+}
+.warranty .poplink span {
+	text-decoration:underline;
+}
+.warranty .poplink :before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -6px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+	transition: 0.2s ease-out;
+}
+/* .reviewBox
+---------------------------------------------*/
+.detailcontent .review {
+	margin-bottom:0px;
+}
+.reviewSort {
+    background-color: #f3f3f3;
+    overflow: hidden;
+    padding: 11px 20px;
+}
+.reviewSort ul {
+	float:right;
+}
+.reviewSort ul li {
+	font-weight:bold;
+	font-size:13px;
+	float:left;
+}
+.reviewSort ul span {
+    float: left;
+    margin: 0px 8px;
+}
+.reviewSort ul li a {
+	text-decoration:underline;
+}
+.reviewBox {
+    background: url(/common/img/line_dotted01.png) repeat-x left bottom;
+	padding:30px 0px;
+    overflow: hidden;
+}
+.reviewBox.hide {
+	display:none;
+}
+.reviewBox .vote {
+	font-size:13px;
+	margin-bottom:20px;
+}
+.iconStar {
+    width: 95px;
+    height: 17px;
+    background: url(/common/img/icon_star.png) no-repeat;
+    text-indent: -9999px;
+    float: left;
+    margin-right: 10px;
+}
+.a-star-5 {
+	background-position:0px;
+	
+}
+.iconStar span {
+    opacity: 0;
+}
+.reviewBox .ttl {
+	margin-bottom:10px;
+}
+.reviewBox .ttl p {
+	font-size:14px;
+}
+.reviewBox .ttl p b {
+	font-size:15px;
+	font-weight:bold;
+}
+.reviewComment {
+	margin-bottom:20px;
+}
+.reviewComment .txt {
+	font-weight:bold;
+	font-size:14px;
+	margin-bottom:10px;
+}
+.reviewComment .notice {
+	color:#666666;
+	font-size:12px;
+}
+.reviewEvaluation p {
+    font-weight: bold;
+    font-size: 13px;
+    float: left;
+    margin: 3px 5px 0px 0px;
+}
+.reviewEvaluation a {
+    background-color: #d6d6d6;
+    font-size: 12px;
+    margin-right: 2px;
+    float: left;
+    display: block;
+    width: 52px;
+    text-align: center;
+    padding: 3px 0px;	
+}
+.review .more {
+	width:300px;
+	margin-top:30px;
+}
+/* .bookRecommended
+---------------------------------------------*/
+.bookRecommended {
+    max-width: 1240px;
+    margin: auto;
+	position:relative;
+}
+.bookRecommended .ttl04 {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0px auto 30px;
+    margin-left: 20px;
+}
+
+.recommendedslider {
+    width: 100%;
+    max-width: 1240px;
+    margin: auto;
+}
+.recommendedslider .slick-list {
+    margin-left: 0px;
+    overflow: hidden;
+}
+.recommendedslider figure {
+    margin: 0 20px;
+}
+.recommendedslider figure a {
+    display: block;
+    position: relative;
+    outline: none;
+}
+.recommendedslider figure span {
+    background: #dedede;
+    display: block;
+    height: 196px;
+    text-align: center;
+    position: relative;
+}
+.recommendedslider figure span img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    max-width: 110px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.recommendedslider figure b {
+	display:block;
+    padding-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.recommendedslider .slick-prev {
+	position: absolute;
+	top:148px;
+	left: -50px;
+	background: url(/common/img/icon_slider_prev02.png) no-repeat;
+	background-size: 25px 44px;
+	width: 25px;
+    height: 44px;
+	text-indent: -9999px;
+}
+.recommendedslider .slick-next {
+	position:absolute;
+	top:148px;
+    right: -50px;
+    background: url(/common/img/icon_slider_next02.png) no-repeat;
+    background-size: 25px 44px;
+    width: 25px;
+    height: 44px;
+    text-indent: -9999px;
+}
+/* .blogTagList
+---------------------------------------------*/
+.blogTagListBox {
+    padding: 23px 40px 5px 40px;
+    margin-top: 40px;
+}
+/* .bloglist
+---------------------------------------------*/
+.bloglist li:first-child {
+    width: 95.25%;
+    max-width: 1200px;
+}
+.bloglist li.hide {
+	display:none;
+}
+.bloglist li:first-child img {
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+/* .blogDetailContent
+---------------------------------------------*/
+.blogDetailContent {
+    background-color: #fff;
+    max-width: 1200px;
+    margin: auto;
+    padding: 52px 20px 58px 20px;
+    margin-bottom: 60px;
+}
+.blogDetailContent .detail {
+    width: 100%;
+    max-width: 852px;
+    margin: auto;
+}
+.blogDetailContent .detail  h1 {
+    font-size: 30px;
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    font-weight: bold;
+    line-height: 1.3;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.blogDetailContent .detail  h1:before {
+    content: "";
+    display: block;
+    width: 180px;
+    height: 2px;
+    background: #ff4b46;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+}
+.blogDetailContent .sub {
+	overflow:hidden;
+	margin-bottom:38px;
+}
+.blogDetailContent .label {
+	overflow: hidden;
+	font-size: 11px;
+	font-weight: bold;
+	line-height: 1;
+	padding-top: 15px;
+	float:left;
+}
+.blogDetailContent .label p {
+	float: left;
+	padding-right: 15px;
+	margin-right: 15px;
+	border-right: 1px solid #aaa;
+}
+.blogDetailContent .label p:last-child {
+	padding-right: 0;
+	margin-right: 0;
+	border-right: none;
+}
+.blogDetailContent .share {
+	float:right;
+	overflow:hidden;
+}
+.blogDetailContent .share a {
+	display:block;
+	width:30px;
+	height:30px;
+}
+.blogDetailContent .share .facebook {
+	background: url(/common/img/btn_facebook_on.png) no-repeat;
+	background-size: 100%;
+	float:left;
+	margin-right:8px;
+}
+.blogDetailContent .share .twitter {
+	background: url(/common/img/btn_twitter_on.png) no-repeat;
+	background-size: 100%;
+	float:right;
+	height: 30px;
+}
+.blogDetailContent .posts {
+	margin-bottom:36px;
+}
+.blogDetailContent .posts img {
+	margin-bottom:36px;
+}
+.blogDetailContent .linkBox {
+    width: 100%;
+    max-width: 852px;
+    margin: auto;
+	overflow:hidden;
+	margin-bottom:30px;
+}
+.blogDetailContent .linkBox p {
+	float:left;
+}
+.blogDetailContent .linkBox p:first-child {
+	margin-right:32px;
+}
+.blogDetailContent .linkBox p a {
+	text-align:center;
+    display: block;
+    width: 406px;
+    min-height: 76px;
+}
+.blogDetailContent .linkBox p a span {
+    padding: 28px 10px 27px 10px;
+}
+.blogDetailContent .linkBox p a span.hide {
+	padding:0;
+}
+.blogDetailContent .linkBox p a span.hide:before {
+	display:none;
+}
+.blogDetailContent .shareBox {
+    width: 100%;
+    max-width: 852px;
+    margin: auto;
+	overflow:hidden;
+	background-color:#eee;
+}
+.blogDetailContent .shareBox li {
+	float:left;
+	width:50%;
+	position:relative;
+}
+.blogDetailContent .shareBox li:first-child:after {
+	content: "";
+	width:1px;
+	height:50px;
+	position:absolute;
+	right:0px;
+	top:10px;
+	background-color:#ccc;
+	
+}
+.blogDetailContent .shareBox li a {
+	font-size: 15px;
+	font-weight: bold;
+	display: block;
+	text-align: center;
+	padding-top: 25px;
+	min-height: 70px;
+}
+.blogDetailContent .shareBox li a span {
+	position: relative;
+	height: 35px;
+	margin: auto;
+	padding: 9px 0px 9px 55px;
+	text-align: left;
+}
+.blogDetailContent .shareBox li a span img{
+	width: 35px;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+.blogDetailContent .shareBox li a:hover {
+	color: #ff4b46;
+	background: #bbb;
+}
+
+/* .selectNav
+---------------------------------------------*/
+.selectNav {
+    background-color: #fff;
+    max-width: 1200px;
+    width: 100%;
+    margin: auto;
+    margin-top: 35px;
+}
+.selectNav ul {
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+    padding: 24px 0;
+}
+.selectNav ul li {
+    padding: 0px 20px 0px 16px;
+    position: relative;
+    display: inline-block;
+}
+.selectNav ul li :before {
+    content: "";
+    position: absolute;
+    width: 2px;
+    height: 13px;
+    top: 5px;
+    right: 0px;
+    background-color: #e5e5e5;
+}
+.selectNav ul li:last-child :before {
+	display:none;
+}
+.selectNav ul li a {
+	font-weight:bold;
+	font-size:14px;
+}
+
+/* .secExplanationBox
+---------------------------------------------*/
+.secExplanationBox {
+	margin-bottom:110px;
+}
+.secExplanationBox ul {
+	overflow:hidden;
+}
+.secExplanationBox ul li {
+	float:left;
+	width:23%;
+	margin-right:2.6%;
+}
+.secExplanationBox ul li:last-child {
+	margin-right:0px;
+}
+.secExplanationBox ul li img {
+    width: 100%;
+    margin-bottom: 20px;
+}
+.secExplanationBox ul li .ttl {
+	font-size:18px;
+	font-weight:bold;
+	margin-bottom:14px;
+}
+.secExplanationBox ul li .txt {
+	font-size:15px;
+}
+.secExplanationBox p {
+	margin-bottom:5px;
+}
+.secExplanationBox p a {
+	text-decoration:underline;
+}
+.secExplanationBox p a img {
+    margin-left: 7px;
+    margin-top: 4px;
+    vertical-align: top;
+}
+.secExplanationBox p.mb {
+	margin-bottom:28px;
+}
+.secExplanationBox p.mb b {
+	font-weight:bold;
+}
+.secExplanationBox .notice {
+	margin-bottom:25px;
+}
+.secExplanationBox .notice p {
+	font-size:12px;
+	color:#666;
+	margin-bottom:0px;
+}
+.secExplanationBox .item {
+	margin-bottom:28px;
+}
+.secExplanationBox .item p {
+	margin-bottom:0px;
+}
+.secExplanationBox .list {
+	margin-bottom:28px;
+}
+.secExplanationBox .list p {
+	padding-left:1em;
+	text-indent:-1.3em;
+}
+
+/* .searchttl
+---------------------------------------------*/
+.ttl01.searchttl {
+	color:#000;
+}
+
+/* .searchResult
+---------------------------------------------*/
+.searchResult {
+	width:100%;
+	max-width:1200px;
+}
+
+/* .searchResultBox
+---------------------------------------------*/
+.searchResultBox {
+	background-color:#fff;
+	padding:30px 40px;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+.searchResultBox figure {
+    background: #dedede;
+    width: 22%;
+    height: 250px;
+    text-align: center;
+    float: left;
+    position: relative;
+	margin-right:38px;
+}
+.searchResultBox figure img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+	width:51%;
+    box-shadow: 0 6px 10px rgba(0,0,0,0.5);
+}
+.searchResultBox .ttl {
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: underline;
+    margin-bottom: 15px;
+}
+.searchResultBox .author {
+	font-size:13px;
+	font-weight:bold;
+	margin-bottom:10px;
+}
+.searchResultBox .txt {
+	font-size:15px;
+	margin-bottom:5px;
+}
+.searchResultBox .btn {
+	float:right;
+}
+.searchResultBox .btn span {
+	padding-right:50px;
+}
+/* .pager
+---------------------------------------------*/
+.pager {
+	text-align:center;
+	margin-top:40px;
+}
+.pager li {
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    min-width: 38px;
+    height: 38px;
+    margin-right: 5px;
+    text-align: center;
+    text-align: -webkit-center;
+    transition: 0.2s ease-out;
+}
+.pager li.current {
+	padding:2px;
+}
+.pager li:nth-last-child(2) {
+	margin-right:26px;
+}
+.pager li a {
+	border:2px solid #000;
+    background-color: #f2f2f2;
+    color: #000;
+    display: block;
+}
+.pager li span {
+    height: 34px;
+    vertical-align: middle;
+    display: table-cell;
+    position: relative;
+    padding: 0px 5px;
+    line-height: 1;
+}
+.pager li.prev {
+	margin-right:26px;
+}
+.pager li.prev span {
+	padding:0 15px 0px 40px;
+}
+.pager li.prev span:before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    margin-top: -6px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    -webkit-transform: rotate(225deg);
+    transform: rotate(225deg);
+	transition: 0.2s ease-out;
+}
+.pager li.next span {
+	padding:0 40px 0px 15px;
+}
+.pager li.next span:before {
+    content: "";
+    display: block;
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    margin-top: -6px;
+    border-top: 2px solid #000;
+    border-right: 2px solid #000;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+	transition: 0.2s ease-out;
+}
+/* .about
+---------------------------------------------*/
+.about .subTtl {
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.about p {
+    font-size: 15px;
+    margin-bottom: 35px;
+    line-height: 2;
+}
+.about section {
+    margin-top: 80px;
+}
+.about section h3{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+}
+.about section img{
+    float: right;
+    width: 32%;
+}
+.about section p {
+	margin-right:34%;
+}
+
+/* .tavNavi
+---------------------------------------------*/
+.tavNavi {
+    text-align: center;
+    margin-bottom: 80px;
+}
+.tavNavi li {
+	display:inline-block;
+	margin-right:-5px;
+	border-left:1px solid #ccc;
+}
+.tavNavi li:last-child {
+	border-right:1px solid #ccc;
+}
+.tavNavi li a {
+    font-weight: bold;
+    font-size: 15px;
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+    width: 300px;
+}
+.tavNavi li a.selected {
+	color: #ff4b46;
+}
+/* .monthBook
+---------------------------------------------*/
+.monthBook section {
+	margin:0px 0px 48px 0px;
+}
+.monthBook section h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 22px;	
+}
+.monthBook section img {
+    float: right;
+    width: 32%;
+    margin-bottom: 70px;
+}
+.monthBook section p {
+    font-size: 15px;
+    margin: 0px 34% 25px 0px;
+}
+.monthBook section p b {
+	font-weight:bold;
+}
+.monthBook section .adress {
+	font-size:13px;
+}
+.monthBook .btn{
+    clear: both;
+    width: 260px;
+    margin: 10px auto 0px;
+}
+.monthBook .btn a span {
+    width: 174px;
+    margin: auto;
+}
+.monthBook .satisfaction {
+	position:relative;
+}
+.monthBook .satisfaction{
+}
+.monthBook .satisfaction  img{
+    width: 17%;
+    position: absolute;
+    top: 0;
+    right: 7%;
+}
+/* tel
+---------------------------------------------*/
+a[href^="tel:"] {
+	cursor: default;
+	text-decoration: none !important;
+}
+
+
+@media only screen and (min-width: 769px) {
+/* -----------------------------------------------------------------------------
+
+	hover
+
+----------------------------------------------------------------------------- */
+a,
+a img,
+.btn :before,
+.underline,
+#gnav ul li a span,
+.anotherLink li span,
+.anotherLink :before,
+.anotherLink :after,
+#pagetop {
+	transition: 0.2s ease-out;
+}
+#gnav ul li a:hover span,
+#gnav ul li a.current span {
+	border-bottom: 2px solid #ff4b46;
+}
+#gnav ul li.facebook a:hover img {
+	opacity: 0;
+}
+#pagetop{
+	background:#777;}
+#pagetop:hover {
+	background: #ff4b46;
+}
+.terminal #pagetop:hover {
+	background: #777!important;
+}
+#footer a:hover {
+	text-decoration: underline;
+}
+.underline:hover,
+a:hover .underline {
+	color: #ff4b46;
+	text-decoration: underline;
+}
+#content a:hover img {
+	opacity: 0.8;
+}
+a.txt:hover,
+.btn a:hover {
+	color: #ff4b46;
+}
+.btn a:hover span:before {
+	border-top: 2px solid #ff4b46;
+	border-right: 2px solid #ff4b46;
+}
+.btn01 a:hover {
+	border: 2px solid #ff4b46;
+}
+.btn02 a:hover {
+	background: #bbb;
+}
+.anotherLink li a:hover span {
+	color: #ff4b46;
+}
+.anotherLink li a:hover:before {
+	border-top: 3px solid #ff4b46;
+	border-right: 3px solid #ff4b46;
+}
+.anotherLink li a:hover:after {
+	opacity: 0;
+}
+#content .anotherLink li a:hover img {
+	opacity: 1;
+}
+.newsList li a:hover {
+	color: #ff4b46;
+}
+.more:hover {
+    color: #ff4b46;
+	background: #bbb;
+}
+.more02:hover {
+    color: #ff4b46;
+	border-color: #ff4b46;
+}
+.more:hover:before ,.more02:hover:before{
+	border-top: 2px solid #ff4b46;
+	border-right: 2px solid #ff4b46;
+}
+.slick-arrow:hover, .slick-arrow:hover {
+	cursor: pointer;
+}
+.detailcontent .index ul li .ttl:hover {
+	opacity:.7;
+}
+.detailcontent .index ul li:first-child .ttl:hover {
+	opacity:1;
+}
+.warranty .poplink:hover {
+	color: #ff4b46;
+	cursor:pointer;
+}
+.warranty .poplink:hover :before {
+    border-color: #ff4b46;
+}
+.buy .btnBox li:hover a {
+	color:#ff4b46;
+}
+.buy .btnBox li:first-child:hover a {
+	border-color: #ff4b46;
+}
+.blogDetailContent .share a:hover img {
+	opacity: 0!important;
+}
+.selectNav ul li a:hover {
+	color:#ff4b46;
+}
+.selectNav ul li a:hover {
+	color:#ff4b46;
+}
+.pager li a:hover {
+	border-color: #ff4b46;
+	color: #ff4b46;
+}
+.pager li a:hover span:before {
+	border-color: #ff4b46;
+}
+.tavNavi li a:hover {
+	color: #ff4b46;
+}
+
+
+}
+
+
+@media only screen and (max-width: 768px) {
+body {
+	min-width: inherit
+}
+.pc {
+	display: none;
+}
+.sp {
+	display: block;
+}
+.inner {
+	max-width: inherit;
+	padding: 0;
+}
+#content {
+    font-size: 14px;
+    padding-top: 57px;
+    line-height: 2;
+}
+
+/* #header
+---------------------------------------------*/
+#header {
+	min-width: inherit;
+	border-bottom: 1px solid #ccc;
+}
+
+/* #headerTop */
+#headerTop {
+	padding: 17px 15px 0;
+	height: 56px;
+}
+#headerTop .logo img {
+	height: 22px;
+}
+#headerTop .btnMenu {
+	display: block;
+	background: transparent;
+	border: none;
+	padding: 0;
+	float: right;
+	outline: none;
+	position: relative;
+}
+#headerTop .btnMenu:after {
+	content: "";
+	width: 21px;
+	height: 21px;
+	background: url(/common/img/icon_close_menu.png) center center no-repeat;
+	background-size: 21px;
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform-origin: center;
+	transform-origin: center;
+	-webkit-transform: rotate(45deg) scale(0.7);
+	transform: rotate(45deg) scale(0.7);
+	opacity: 0;
+}
+#headerTop .btnMenu > span {
+	display: block;
+	border-radius: 2px;
+	background-color: #000;
+	height: 3px;
+	width: 22px;
+	margin-bottom: 3px;
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+	opacity: 1;
+}
+#headerTop .btnMenu.open > span {
+	-webkit-transform: translateX(30px);
+	transform: translateX(30px);
+	opacity: 0;
+}
+#headerTop .btnMenu.open:after {
+	opacity: 1;
+	-webkit-transform: rotate(0) scale(1);
+	transform: rotate(0) scale(1);
+}
+
+/* #gnav */
+#gnav {
+	border-top: none;
+	background: #000;
+	position: fixed;
+	top: 0;
+	left: 100%;
+	width: 100%;
+	height: 100%;
+	-webkit-transition: all 0.2s ease;
+	transition: all 0.2s ease;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+}
+#gnav.open {
+	left: 0;
+}
+#gnav .inner {
+	height: 100%;
+	overflow: auto;
+	padding-top: 56px;
+}
+#gnav .searchForm {
+	position: relative;
+	top: inherit;
+	right: inherit;
+	padding: 25px 15px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #fff;
+}
+#gnav .searchForm dt {
+	display: block;
+	padding-right: 0;
+}
+#gnav .searchForm dd {
+	display: block;
+	font-size: 18px;
+	margin: 10px 0 0;
+}
+#gnav .searchForm dd .inputText {
+	width: 100%;
+	height: 45px;
+	padding: 0 45px 0 15px;
+}
+#gnav .searchForm dd .search {
+	width: 45px;
+	height: 45px;
+}
+#gnav ul {
+	text-align: left;
+	padding: 15px 0;
+}
+#gnav ul li {
+	display: block;
+	margin: 0;
+}
+#gnav ul li.facebook {
+	display: none;
+}
+#gnav ul li a {
+	padding: 0;
+}
+#gnav ul li a span {
+	height: auto;
+	line-height: 1.3;
+	font-size: 16px;
+	border-top: none;
+	border-bottom: none;
+	color: #fff;
+	padding: 15px 40px 15px 15px;
+	position: relative;
+}
+#gnav ul li a span:before {
+	content: "";
+	display: block;
+	width: 6px;
+	height: 6px;
+	position: absolute;
+	right: 25px;
+	top: 50%;
+	margin-top: -3px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* #footer
+---------------------------------------------*/
+#footer {
+	text-align: center;
+}
+
+/* #pagetop */
+#pagetop {
+	margin-right: 0;
+}
+
+/* #footerTop */
+#footerTop {
+	padding: 30px 15px;
+}
+#footerTop #footerSitemap {
+	float: none;
+	text-align: center;
+}
+#footerTop #footerSitemap ul {
+	float: none;
+	margin-right: 0;
+	font-size: 14px;
+}
+#footerTop #footerSitemap ul + ul {
+	margin-top: 20px;
+}
+#footerTop #footerSitemap ul li a span {
+	padding-right: 15px;
+}
+#footerTop #footerSitemap ul li a span:before {
+	width: 6px;
+	height: 6px;
+	margin-top: -5px;
+}
+#footerTop #footerLink {
+	float: none;
+	font-size: 0;
+	font-weight: normal;
+	margin-top: 30px;
+	padding-top: 20px;
+	border-top: 1px solid #fff;
+}
+#footerTop #footerLink ul {
+	font-size: 0;
+}
+#footerTop #footerLink ul + ul {
+	margin-top: 10px;
+}
+#footerTop #footerLink ul li {
+	font-size: 13px;
+	display: inline-block;
+}
+#footerTop #footerLink ul li + li {
+	margin-top: 0;
+	margin-left: 8px;
+	padding-left: 8px;
+	border-left: 1px solid #3e3e3e; 
+}
+#footerTop #facebookWidget {
+	float: none;
+	margin: 20px auto 0;
+	width: 290px;
+}
+
+/* #footerBottom */
+#footerBottom {
+	background: #fff;
+	font-size: 12px;
+	padding: 15px;
+}
+#footerBottom .pmark {
+	float: none;
+}
+#footerBottom .pmark img {
+	float: none;
+	width: 62px;
+	margin: 0 auto;
+}
+#footerBottom .pmark span {
+	display: block;
+	margin-top: 10px;
+}
+#footerBottom .copyright {
+	float: none;
+	text-align: center;
+	margin-top: 10px;
+}
+#footerBottom .copyright small {
+	display: block;
+}
+
+
+
+/* -----------------------------------------------------------------------------
+
+	module
+
+----------------------------------------------------------------------------- */
+.wrap {
+	padding: 40px 15px 45px;
+}
+.wrap.lowwrap{
+    padding: 25px 15px 45px;
+}
+.wrap.lowwrap02{
+	padding: 25px 0px 45px;
+}
+.wrap:first-child {
+	padding-top: 25px;
+}
+.wrap.lowwrap:first-child {
+    padding: 15px;
+}
+.wrap.lowwrap02:first-child {
+	padding-top: 15px;
+}
+.wrap:last-child {
+	padding-bottom: 80px;
+}
+.wrap.lowwrap02:last-child {
+	padding-bottom:0px;
+}
+section + section {
+	margin-top: 40px;
+}
+
+/* title
+---------------------------------------------*/
+.ttl01 {
+	font-size: 11px;
+	margin-bottom: 20px;
+	padding-bottom: 0;
+	border-bottom: none;
+}
+.ttl01 b {
+	font-size: 20px;
+	margin-right: 0;
+	padding-bottom: 8px;
+	border-bottom: 1px solid #ccc;
+}
+.ttl01 b:before {
+	bottom: -2px;
+}
+.ttl01 span {
+	border-top: 1px solid #ccc;
+	display: block;
+	padding-top: 5px;
+}
+.ttl02 {
+	font-size: 20px;
+	margin-bottom: 25px;
+}
+.ttl02 b {
+	padding-bottom: 8px;
+}
+.ttl03 {
+	font-size: 20px;
+}
+.lowwrap02 .ttl03 {
+	margin-left:15px;
+}
+.ttl04 {
+	font-size: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 0;
+}
+.ttl04 b {
+    margin-right: 0;
+    padding-bottom: 8px;
+    font-size: 20px;
+}
+.ttl04 b:before {
+    bottom: -1px;
+}
+
+
+/* button
+---------------------------------------------*/
+.btn {
+	max-width: 240px;
+}
+.btn01 a {
+	border: 1px solid #000;
+	font-size: 16px;
+	text-align: center;
+}
+.btnHead {
+	position: relative;
+	top: inherit;
+	right: inherit;
+	padding-top: 25px;
+}
+.more{
+    width: 230px;
+    font-size: 15px;
+    padding: 13px 0px;
+    margin-top: 25px;
+}
+.more02{
+    width: 228px;
+    font-size: 15px;
+    padding: 13px 0px;
+    margin-top: 25px;
+}
+
+/* .latestBox
+---------------------------------------------*/
+.latestBox {
+	padding: 25px;
+}
+.latestBox figure {
+	width: auto;
+	height: auto;
+	float: none;
+	padding: 30px;
+}
+.latestBox figure img {
+	position: relative;
+	top: inherit;
+	right: inherit;
+	bottom: inherit;
+	left: inherit;
+	margin: auto;
+	max-width: 120px;
+	width: 100%;
+}
+.latestBox .information {
+	margin-left: 0;
+}
+.latestBox .information .bookTtl {
+	font-size: 18px;
+	padding-top: 15px;
+	margin-bottom: 10px;
+}
+.latestBox .information .publisher {
+	float: none;
+	width: auto;
+	font-size: 12px;
+	font-weight: bold;
+	margin-bottom: 0;
+}
+.latestBox .information .publisher p + p {
+	margin-top: 2px;
+}
+.latestBox .information .txt {
+	float: none;
+	width: auto;
+	margin-bottom: 0;
+	margin-top: 15px;
+}
+.latestBox .information .label {
+	position: relative;
+	bottom: inherit;
+	right: inherit;
+	font-size: 12px;
+	float: right;
+	padding-top: 15px;
+}
+.latestBox .information .label p + p {
+	padding-right: 10px;
+	margin-right: 10px;
+}
+.latestBox .information .btn {
+	position: relative;
+	bottom: inherit;
+	left: inherit;
+	width: auto;
+	clear: both;
+	padding-top: 25px;
+}
+
+/* .rankList
+---------------------------------------------*/
+.rankList .slick-list {
+	margin-left: -15px;
+}
+.rankList figure {
+	width: auto;
+	margin-left: 15px;
+}
+.rankList figure + figure {
+	margin-left: 15px;
+}
+.rankList figure a:before {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+}
+.rankList figure span {
+	background: #dedede;
+	display: block;
+	height: 196px;
+	text-align: center;
+	position: relative;
+}
+.rankList figure span img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 110px;
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.rankList figure b {
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+/* .bookList
+---------------------------------------------*/
+.bookList {
+	margin: -25px 0 0 -4%;
+}
+.bookList li {
+	width: 46%;
+	margin: 25px 0 0 4%;
+}
+.bookList li:first-child {
+	width: 96%;
+}
+.secBlog .bookList li:nth-child(n+6) {
+	display: none;
+}
+.bookList li .label {
+	font-size: 12px;
+	padding-top: 10px;
+}
+.bookList li .label p {
+	padding-right: 10px;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.bookList li .bookTtl {
+	font-size: 15px;
+	margin-top: 10px;
+}
+.bookList li.first .bookTtl {
+	font-size:17px;
+}
+.bookList li .txt {
+	margin-top: 10px;
+}
+
+/* .anotherLink
+---------------------------------------------*/
+.anotherLink {
+	margin: 45px 0 0;
+}
+.anotherLink li {
+	width: auto;
+	max-width: 345px;
+	margin: 0 auto;
+	display: block;
+}
+.anotherLink li + li {
+	margin-top: 20px;
+}
+.anotherLink li a {
+	display: block;
+}
+.anotherLink li a:before {
+	width: 6px;
+	height: 6px;
+	right: 10px;
+	margin-top: -3px;
+	border-top: 2px solid #fff;
+	border-right: 2px solid #fff;
+}
+.anotherLink li span {
+	font-size: 15px;
+}
+
+/* .recommendBox
+---------------------------------------------*/
+.recommendBox {
+	padding: 25px 30px;
+	text-align: left;
+}
+.recommendBox .ttl {
+	font-size: 20px;
+	margin-bottom: 15px;
+}
+.recommendBox .lead {
+	font-size: 20px;
+	text-align: left;
+	margin-top: 15px;
+}
+.recommendBox dl {
+	margin-top: 15px;
+	text-align: left;
+}
+.recommendBox dl dt {
+	font-size: 17px;
+}
+.recommendBox dl dd {
+	margin-top: 15px;
+	font-size: 14px;
+	line-height: 2;
+}
+.recommendBox dl dd p + p {
+	margin-top: 10px;
+}
+.recommendBox .btn {
+	margin: 25px auto 0;
+	width: auto;
+}
+.recommendBox .btn a {
+	text-align: center;
+	padding: 0;
+}
+
+/* .newsList
+---------------------------------------------*/
+.newsList {
+	background: url(/common/img/line_dotted01.png) repeat-x left top;
+}
+.newsList li {
+	background: url(/common/img/line_dotted01.png) repeat-x left bottom;
+	padding: 10px 0;
+}
+.newsList li span {
+	display: block;
+}
+.newsList li .time {
+	float: none;
+	font-weight: bold;
+}
+.newsList li .txt {
+	margin-left: 0;
+	margin-top: 2px;
+}
+
+/* .tag 
+---------------------------------------------*/
+.tag .tagList{
+	height: 38px;
+}
+.tag ul {
+    margin-right: 25px;
+}
+.tag ul li {
+    margin-right: 11px;
+    margin-bottom: 19px;
+}
+.tag a{
+    font-size: 13px;
+    padding: 1px 5px;
+    line-height: 1.4;
+}
+
+/* .bookTagLis
+---------------------------------------------*/
+.bookTagList {
+    margin: 20px 0px;
+}
+
+.TagListAdd {
+    width: 20px;
+    height: 20px;
+}
+.TagListAdd:before {
+    width: 11px;
+    height: 1px;
+    top: 10px;
+    left: 5px;
+}
+.TagListAdd:after {
+    height: 11px;
+    top: 5px;
+    left: 10px;
+}
+
+/* .bookTagListBox
+---------------------------------------------*/
+.bookTagListBox {
+    padding: 1px 15px;
+    margin-top: 15px;
+}
+.bookTagttl {
+    font-size: 15px;
+    width: 68px;
+    margin-top: 1px;
+    line-height: 1.4;
+}
+
+/* .bookListBestSeller
+---------------------------------------------*/
+.bookListBestSeller {
+	margin-bottom:42px;
+}
+
+/* .bookResultList
+---------------------------------------------*/
+.bookResultList li {
+    width: 48%;
+    margin: 0 4% 25px 0;
+}
+.bookResultList li:nth-child(2n) {
+	margin-right:0;
+}
+.bookResultList ul li span.Tag {
+    font-size: 10px;
+    padding: 2px 4px;
+    margin-bottom: 12px;
+}
+.bookResultList ul li h3.ttl {
+    font-size: 15px;
+    margin: 10px 0;
+}
+.bookResultList ul li .author {
+    font-size: 12px;
+    margin-bottom: 8px;
+}
+/* .popupWarranty
+---------------------------------------------*/
+.popupWarranty {
+    width: 90%;
+    padding: 20px 15px;
+}
+.popupWarranty h3 {
+	font-size:20px;
+}
+.popupWarranty .sub {
+	font-size:12px;
+}
+.popupWarranty .txt {
+    height: 188px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+.popupWarranty ::-webkit-scrollbar {
+  background:#e8e8e8;
+  width:5px;
+  border-radius: 25px;        /* CSS3草案 */  
+  -webkit-border-radius: 25px;    /* Safari,Google Chrome用 */  
+  -moz-border-radius: 25px;   /* Firefox用 */  
+}  
+.popupWarranty ::-webkit-scrollbar-thumb {
+  
+  background:#929292;
+  border-radius: 25px;        /* CSS3草案 */  
+  -webkit-border-radius: 25px;    /* Safari,Google Chrome用 */  
+  -moz-border-radius: 25px;   /* Firefox用 */  
+}
+.popupWarranty .txt {
+}
+.popupWarranty .txt p {
+	font-size:12px;
+}
+.popupWarranty .adress {
+	font-size:12px;
+}
+.popupWarranty .close {
+    width: 32px;
+    background-size: 32px 32px;
+    height: 32px;
+}
+/* .pankuzu
+---------------------------------------------*/
+.pankuzu {
+    margin: 10px 0px 15px 8px;
+}
+.pankuzu li {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.4;
+}
+.pankuzu span {
+    width: 6px;
+    height: 6px;
+    margin-top: 5px;
+    border-top: 1px solid #999;
+    border-right: 1px solid #999;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background: none;
+}
+/* .detailcontent
+---------------------------------------------*/
+.detailcontent {
+	margin-bottom:0px;
+}
+.detailcontent .detail {
+    max-width: none;
+    padding: 20px 0px;
+}
+.detailcontent .detailData {
+    padding: 0px 15px;
+    margin-bottom: 18px;
+}
+.detailcontent .detailData figure {
+    float: none;
+    width: 100%;
+    max-width: none;
+	padding: 30px;
+    height: auto;
+}
+.detailcontent .detailData figure img {
+    position: relative;
+    top: inherit;
+    right: inherit;
+    bottom: inherit;
+    left: inherit;
+    margin: auto;
+    max-width: 120px;
+    width: 100%;
+}
+.detailcontent .detailData p.ttl {
+	font-size:24px;
+	margin-bottom:10px;
+}
+.detailcontent .detailData .publisher {
+	font-size:12px;
+}
+.detailcontent .detailData .author {
+	font-size:12px;
+}
+.detailcontent .detailData .price {
+	font-size:12px;
+}
+.detailcontent .detailData .price strong {
+	font-size:22px;
+}
+.detailcontent .detailData .price strong span {
+	font-size:14px;
+}
+.detailcontent .detailData .freeDelivery {
+    font-size: 13px;
+    padding: 3px 5px;
+}
+.detailcontent .buyLink {
+    background-color: #f2f2f2;
+    padding: 15px;
+    margin-bottom: 34px;
+}
+.detailcontent .buyLink .buy {
+    width: 100%;
+    text-align: center;
+    padding: 15px 23px;
+}
+.detailcontent .buyLink .buy .card img {
+	width:48%;
+	max-width:320px;
+}
+.buy .btnBox li a {
+    width: 100%;
+    font-size: 14px;
+    min-height: 47px;
+    padding-top: 14px;
+    border: 1px solid #000;
+}
+.buy .btnBox li:last-child a {
+	font-size:14px;
+	padding-top:7px;
+}
+.warranty a :before {
+    width: 6px;
+    height: 6px;
+    margin-top: -4px;
+}
+.warranty .ttl {
+	font-size:17px;
+}
+.warranty .txt{
+	font-size:14px;
+	margin-bottom:12px;
+}
+.warranty .poplink {
+    font-size: 13px;
+    display: block;
+    margin: auto;
+    float: none;
+    text-align: center;
+    width: 100px;
+    padding: 0px;
+}
+.detailcontent .detailBox {
+	padding:0px 15px;
+}
+.detailcontent .explanation h5 {
+    font-size: 17px;
+}
+.detailcontent .explanation p {
+	font-size:14px;
+}
+.detailcontent .index ul li .ttl p span{
+	display:block;
+}
+.detailcontent .index ul li .ttl{
+	cursor:auto;
+}
+.detailcontent .index ul li .ttl p {
+	font-size:14px;
+	padding: 10px 40px 10px 10px;
+}
+.detailcontent .index ul li .ttl p:after {
+	width: 1px;
+	height: 13px;
+	top: 50%;
+	right: 16px;
+	margin-top: -6.5px;
+}
+.detailcontent .index ul li .ttl p:before {
+	width: 13px;
+	height: 1px;
+	top: 50%;
+	right: 10px;
+	margin-top: -0.5px;
+}
+.detailcontent .index ul li .txt div {
+	padding: 10px 15px 11px 15px;
+}
+.detailcontent .index ul li .txt p {
+	font-size:13px;
+}
+.authorPhoto {
+    width: 115px;
+    margin: auto 20px 20px auto;
+}
+.reviewBox {
+	padding:18px 0px;
+}
+.reviewBox .ttl p {
+	font-size:13px;
+}
+.detailcontent .author p {
+	margin-left:0px;
+}
+.detailcontent .author p.name {
+    font-size: 17px;
+    padding-top: 60px;
+    min-height: 147px;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+.reviewSort ul li {
+	font-size:12px;
+}
+.reviewSort {
+    padding: 10px 15px 9px 15px;
+}
+.reviewBox .vote {
+	font-size:12px;
+}
+.reviewBox .ttl p b {
+    font-size: 15px;
+    line-height: 1;
+}
+.reviewComment .txt {
+	font-size:15px;
+}
+.reviewComment .notice {
+	font-size:12px;
+}
+.reviewEvaluation p {
+	float:none;
+	margin-bottom:18px;
+}
+/* .bookRecommended
+---------------------------------------------*/
+.bookRecommended .slick-arrow {
+	position: absolute;
+	bottom: 0;
+	width: 11px;
+	height: 18px;
+	border: none;
+	outline: none;
+	text-indent: -9999px;
+	z-index: 2;
+	background: #000;
+}
+.bookRecommended .slick-prev {
+	left: 0;
+	top: auto;
+	background: url(/common/img/icon_slider_prev.png) no-repeat;
+	background-size: 11px 18px;
+}
+.bookRecommended .slick-next {
+	right: 0;
+	top: auto;
+	background: url(/common/img/icon_slider_next.png) no-repeat;
+	background-size: 11px 18px;
+}
+.bookRecommended .slick-disabled {
+	opacity: 0;
+}
+.bookRecommended ul.slick-dots {
+	text-align: center;
+	padding: 30px 0 5px;
+	font-size: 0;
+	clear: both;
+}
+.bookRecommended ul.slick-dots li {
+	display: inline-block;
+	margin: 0 7px;
+}
+.bookRecommended ul.slick-dots li button {
+	background: #e3e3e3;
+	text-indent: -9999px;
+	display: block;
+	width: 8px;
+	height: 8px;
+	border: none;
+	outline: none;
+	border-radius: 4px;
+}
+.bookRecommended ul.slick-dots li.slick-active button {
+	background: #c8c8c8;
+}
+.bookRecommended {
+    padding: 0px 15px;
+    background-color: #fff;
+    padding-bottom: 96px;
+}
+.bookRecommended .ttl04 {
+    margin: 0px auto 20px;
+}
+.recommendedslider {
+	position:relative;
+}
+.recommendedslider .slick-list {
+    margin-left: -15px;
+    overflow: inherit;
+}
+.recommendedslider figure {
+    width: auto;
+    margin: 0px 0px 0px 15px;
+}
+.recommendedslider figure + figure {
+	margin-left: 15px;
+}
+.recommendedslider figure a:before {
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	font-size: 12px;
+}
+.recommendedslider figure span {
+	background: #dedede;
+	display: block;
+	height: 196px;
+	text-align: center;
+	position: relative;
+}
+.recommendedsliderfigure span img {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	margin: auto;
+	max-width: 110px;
+	box-shadow: 4px 4px 10px rgba(0,0,0,0.5);
+}
+.recommendedslider figure b {
+	padding-top: 15px;
+	font-weight: bold;
+	font-size: 18px;
+}
+/* .sidedetail
+---------------------------------------------*/
+.sidedetail {
+	display:none;
+}
+/* .blogTagList
+---------------------------------------------*/
+.blogTagListBox {
+    padding: 19px 15px 0px 15px;
+    margin-top: 15px;
+}
+/* .blogDetailContent
+---------------------------------------------*/
+.blogDetailContent {
+    padding: 20px 0px 20px;
+    margin-bottom: 0px;
+}
+.blogDetailContent .detail {
+	padding:0px 15px;
+}
+.blogDetailContent .detail  h1{
+    font-size: 20px;
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+}
+.blogDetailContent .detail  h1:before {
+	width:72%;
+}
+.blogDetailContent .sub {
+	margin-bottom:20px;
+}
+.blogDetailContent .label {
+	font-size:12px;
+	padding-top:10px;
+}
+.blogDetailContent .share p {
+	background-size: 25px!important;
+}
+.blogDetailContent .share .facebook {
+	margin-right: 12px;
+}
+.blogDetailContent .share a {
+	width:30px;
+	height:30px;
+}
+.blogDetailContent .posts img {
+	margin-bottom:22px;
+}
+.blogDetailContent .linkBox {
+	padding:0px 15px;
+}
+.blogDetailContent .linkBox p.btn {
+    width: 100%;
+    margin: auto;
+    float: none;
+    margin-bottom: 15px;
+    max-width: 260px;
+}
+.blogDetailContent .linkBox p a {
+	width:auto;
+	min-height:45px;
+	font-size:15px;
+}
+.blogDetailContent .linkBox p a span {
+    padding: 15px 10px 15px 10px!important;
+}
+.blogDetailContent .linkBox p a span .hide {
+	display:none;
+}
+.blogDetailContent .shareBox li a span img {
+    width: 28px;
+    top: 4px;
+}
+.blogDetailContent .shareBox li{
+	line-height:1.4;
+}
+.blogDetailContent .shareBox li a {
+    font-size: 15px;
+    padding-top: 8px;
+    min-height: 55px;
+}
+.blogDetailContent .shareBox li a span {
+    padding: 0px 0px 0px 45px;
+    text-align: left;
+    height: auto;
+    width: 135px;
+    display: block;
+}
+.blogDetailContent .shareBox li:first-child:after {
+	height:35px;
+	top:10px;
+}
+
+/* .secNewArticle
+---------------------------------------------*/
+.secNewArticle {
+	background-color:#fff;
+	padding:45px 15px 98px 15px;
+}
+.secNewArticle li:first-child {
+	width:46%;
+}
+
+/* .selectNav
+---------------------------------------------*/
+.selectNav {
+    background-color: #fff;
+    padding: 0px;
+    margin-top: 15px;
+}
+.selectNav ul {
+    padding: 4px 10px;
+}
+.selectNav ul li {
+    width: 48%;
+    text-align: center;
+    text-align: -webkit-center;
+    padding: 0;
+    border-bottom: 1px dashed #e5e5e5;
+}
+.selectNav ul li:last-child, .selectNav ul li:nth-child(7) {
+	border:none;
+}
+.selectNav ul li :before {
+    width: 0px;
+    height: 40px;
+    top: 8px;
+    right: -2px;
+    border-right: 1px dashed #e5e5e5;
+    background-color: #fff;
+}
+.selectNav ul li:nth-child(2n) :before {
+	display:none;
+}
+.selectNav ul li a {
+    font-size: 15px;
+    min-height: 60px;
+    display: table-cell;
+    height: 60px;
+    vertical-align: middle;
+    text-align: center;
+    padding: 8px;
+    line-height: 1.4;
+}
+
+/* .secExplanationBox
+---------------------------------------------*/
+.secExplanationBox {
+    margin-bottom: 38px;
+}
+.secExplanationBox .ttl01 {
+	border-bottom: 1px solid #ccc;
+}
+.secExplanationBox ul {
+	overflow:hidden;
+}
+.secExplanationBox ul li {
+	width: 100%;
+    float: none;
+    margin: 0px;
+	overflow:hidden;
+	margin-bottom:20px;
+	
+}
+.secExplanationBox ul li .ttl {
+	font-size:15px;
+}
+.secExplanationBox ul li .txt {
+	font-size:14px;
+}
+.secExplanationBox ul li img {
+    width: 36%;
+    float: right;
+    margin: 0px 0px 0px 20px;
+}
+.secExplanationBox .notice {
+	margin-bottom:22px;
+}
+.secExplanationBox .notice p {
+	font-size:12px;
+}
+.secExplanationBox p {
+	margin-bottom:0px;
+}
+.secExplanationBox p a img {
+    width: 8px;
+    margin-left: 5px;
+    margin-top: 5px;
+}
+/* .searchttl
+---------------------------------------------*/
+.ttl01.searchttl {
+    color: #000;
+    margin: 0px 15px 15px;
+}
+.searchResultBox {
+	margin-bottom:0px;
+	padding:25px 15px;
+}
+
+/* .searchResultBox
+---------------------------------------------*/
+.searchResultBox figure {
+    width: 45%;
+    margin: 0px 15px 20px 0px;
+}
+.searchResultBox .ttl {
+	font-size:17px;
+}
+.searchResultBox .author {
+	font-size:12px;
+}
+.searchResultBox .txt {
+    font-size: 14px;
+    clear: both;
+    margin-bottom: 22px;
+}
+.searchResultBox .btn {
+	float:none;
+}
+.searchResultBox .btn01 a {
+	font-size:15px;
+}
+.searchResultBox .btn span {
+    padding: 13px 10px 13px;
+}
+.searchResultBox  .btn a span:before {
+    width: 6px;
+    height: 6px;
+    margin-top: -5px;
+}
+/* .pager
+---------------------------------------------*/
+.pager {
+	margin:25px 15px;
+	position:relative;
+}
+.pager li {
+	font-size:15px;
+	margin-right:10px;
+}
+.pager li:nth-last-child(2) {
+	margin-right:0px;
+}
+.pager li.prev {
+	position:absolute;
+	left:0;
+}
+.pager li.next {
+	position:absolute;
+	right:0;
+}
+.pager li a {
+	border:1px solid #000;
+}
+.pager li span {
+    height: 36px;
+}
+.pager li.prev span , .pager li.next span {
+    text-indent: -9999px;
+    padding: 0;
+}
+.pager li.prev span:before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    left: 4px;
+    margin-top: -4px;
+}
+.pager li.next span:before {
+    content: "";
+    display: block;
+    width: 6px;
+    height: 6px;
+    right: 4px;
+    margin-top: -4px;
+}
+
+/* .about
+---------------------------------------------*/
+.about .subTtl {
+    font-size: 15px;
+    margin-bottom: 13px;
+}
+.about p {
+    font-size: 14px;
+    margin-bottom: 25px;
+    line-height: 1.8;
+}
+.about section {
+    margin-top: 42px;
+}
+.about section h3 {
+	font-size:15px;
+	margin-bottom:20px;
+}
+.about section img {
+    float: none;
+    width: 100%;
+	margin-bottom:20px;
+}
+.about section p {
+	margin-right:0px;
+}
+
+/* .tavNavi
+---------------------------------------------*/
+.tavNavi {
+    padding: 0px 0px 20px 0px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 25px;
+}
+.tavNavi li {
+    width: 33.3%;
+    border-left: 1px dashed #ccc;
+    vertical-align: middle;
+}
+.tavNavi li:first-child {
+	border-left:none;
+}
+.tavNavi li:last-child {
+	border-right:none;
+}
+.tavNavi li a {
+    font-size: 15px;
+    height: 48px;
+    padding: 0 10px;
+    line-height: 1.4;
+}
+.monthBook {
+	padding-bottom:98px;
+}
+.monthBook section {
+    padding: 0px 15px;
+    margin-bottom: 52px;
+}
+.monthBook section h3 {
+    font-size: 15px;
+    margin-bottom: 25px;
+}
+.monthBook section img {
+    float: none;
+    width: 100%;
+    margin-bottom: 28px;
+}
+.monthBook section p {
+    font-size: 14px;
+    margin: 0px 0px 25px 0px;
+}
+
+.monthBook .satisfaction {
+	text-align:center;
+}
+.monthBook .satisfaction h3 , .monthBook .satisfaction p {
+	text-align:left;
+}
+.monthBook .satisfaction  img{
+    position: relative;
+    width: 50%;
+    margin: 10px auto 0px;
+    right: 0;
+}
+.monthBook .btn {
+	width:230px;
+}
+.monthBook .btn01 a {
+	font-size:15px;
+}
+.monthBook .btn01 span {
+	padding: 13px 23px 13px 0;
+	width:154px;
+}
+
+}
+
+
+
+@media only screen and (min-width: 568px) {
+.recommendBox figure .pc {
+	display: block;
+}
+.recommendBox figure .sp {
+	display: none;
+}
+}
+
+
+
+@media print {
+/* -----------------------------------------------------------------------------
+
+	print
+
+----------------------------------------------------------------------------- */
+#header {
+	position: absolute;
+}
+
+
+
+}
+
+

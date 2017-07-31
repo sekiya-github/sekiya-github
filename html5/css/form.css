@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+/* -----------------------------------------------------------------------------
+
+	form
+
+----------------------------------------------------------------------------- */
+textarea,
+select,
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"] {
+	width: 380px;
+    height: 36px;
+    padding: 0 40px 0 13px;
+/*    background: #ddd;*/
+    border: 1px solid #ccc;
+	font-size:14px;
+}
+
+textarea{
+    width: 80em;
+    max-width: 800px;
+    height: 12em;
+    resize: both;
+	padding-top: 5px;
+}
+
+.input-area dl dt {
+    margin-bottom: 8px;
+}
+.input-area dl + dl {
+    margin-top: 30px;
+}
+
+.input-area dd img.circle {
+	width: 47px;
+	height: 47px;
+	border-radius: 100%;
+}
+
+
+.file-upload-area{
+	padding:30px;
+}

@@ -1,0 +1,32 @@
+/* -----------------------------------------------------------------------------
+
+	base
+
+----------------------------------------------------------------------------- */
+body {
+	-webkit-font-smoothing: antialiased;
+	-webkit-print-color-adjust: exact;
+	font-family: YuGothic, 'Yu Gothic', 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'MS Sans Serif', 'メイリオ', Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	-webkit-text-size-adjust: 100%;
+	color: #000;
+}
+.sepa {
+	margin: 80px;
+}
+.inner{
+	max-width: 1000px;
+	margin:0 auto;
+}
+
+/* -----------------------------------------------------------------------------
+
+	mible
+
+----------------------------------------------------------------------------- */
+@media only screen and (max-width: 768px) {
+
+	
+	.inner{
+	width: 100%;
+		padding:0 10px;
+}
